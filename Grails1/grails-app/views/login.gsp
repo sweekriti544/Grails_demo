@@ -124,7 +124,7 @@
             <button>Login</button>
             <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
-        <g:form class="login-form" controller="user" action="login">
+        <g:form class="login-form" controller="user" action="home">
 
             <input type="text" placeholder="name" name="name" required/>
             <input type="password" placeholder="password" name="password" required/>

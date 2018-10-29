@@ -8,6 +8,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class UserController {
 
+    def exportService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
     def test(){
         println("This is Test method")
@@ -28,6 +29,28 @@ class UserController {
     }
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
+
+        if(params?.extension && params.extension != "html") {
+
+
+            response.contentType = grailsApplication.config.grails.mime.types[params.extension]
+            response.setHeader("Content-disposition", "attachment; filename=users.${params.extension}")
+
+
+            List fields = ["name", "email", "address", "password"]
+            Map labels = ["name": "Name", "email": "Email", "address": "Address", "password": "Password"]
+
+            // Formatter closure
+            def upperCase = { domain, value ->
+                return value.toUpperCase()
+            }
+
+            Map formatters = [name: upperCase]
+            Map parameters = [title: "User List"]
+
+            exportService.export(params.extension, response.outputStream, User.list(params), fields, labels, formatters, parameters)
+        }
+
         respond User.list(params), model:[userInstanceCount: User.count()]
     }
 

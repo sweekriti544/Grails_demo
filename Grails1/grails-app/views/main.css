@@ -96,7 +96,7 @@ textarea::-moz-placeholder { color: #8f8fa1;}
 textarea:-ms-input-placeholder { color: #8f8fa1;}
 
 label {
-    display: block;
+    display:inline;
     margin: 0;
 }
 
@@ -178,7 +178,7 @@ iframe {
     text-align: center;
 
     width: 100%;
-    display: block;
+    display: inline;
 }
 
 
@@ -202,7 +202,7 @@ iframe {
     line-height: 1.2;
     font-size: 18px;
 
-    display: block;
+    display: inline;
     width: 100%;
     background: transparent;
     height: 62px;
@@ -213,7 +213,7 @@ iframe {
 
 .focus-input100 {
     position: absolute;
-    display: block;
+    display: inline;
     width: calc(100% + 2px);
     height: calc(100% + 2px);
     top: -1px;
@@ -273,7 +273,7 @@ iframe {
     color: #999999;
     line-height: 1.2;
 
-    display: block;
+    display: inline;
     position: relative;
     padding-left: 26px;
     cursor: pointer;
@@ -397,7 +397,7 @@ iframe {
 .alert-validate::after {
     content: "\f12a";
     font-family: FontAwesome;
-    display: block;
+    display: inline;
     position: absolute;
     color: #c80000;
     font-size: 18px;

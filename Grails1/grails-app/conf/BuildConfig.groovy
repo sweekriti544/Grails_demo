@@ -34,6 +34,7 @@ grails.project.dependency.resolution = {
     legacyResolve false // whether to do a secondary resolve on plugin installation, not advised and here for backwards compatibility
 
     repositories {
+        mavenRepo "http://repo.grails.org/grails/core"
         inherits true // Whether to inherit repository definitions from plugins
 
         //grailsPlugins()   // Only for Ivy
@@ -50,6 +51,7 @@ grails.project.dependency.resolution = {
          runtime 'mysql:mysql-connector-java:5.1.29'
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
+        compile 'commons-beanutils:commons-beanutils:1.8.3'
     }
 
     plugins {
@@ -57,10 +59,13 @@ grails.project.dependency.resolution = {
         build ":tomcat:7.0.70" // or ":tomcat:8.0.22"
 
         // plugins for the compile step
+
         compile ":scaffolding:2.1.2"
         compile ':cache:1.1.8'
         // asset-pipeline 2.0+ requires Java 7, use version 1.9.x with Java 6
         compile ":asset-pipeline:2.5.7"
+
+        compile "org.grails.plugins:export:1.6"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.10" // or ":hibernate:3.6.10.18"
